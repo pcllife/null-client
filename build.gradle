@@ -4,34 +4,43 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
-group = 'org.example'
-version = '1.0-SNAPSHOT'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+javafx {
+    version = "21"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
 
 repositories {
     mavenCentral()
 }
 
-javafx {
-    version = '21'
-    modules = ['javafx.controls', 'javafx.fxml']
+dependencies {
+    // JSON 解析
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // 可选：HTTP 客户端（Java 11 以上也可使用内置 java.net.http）
+    // implementation 'org.apache.httpcomponents.client5:httpclient5:5.3'
+
+    // 日志
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
 }
 
 application {
-    mainClass = 'org.example.launcher.LauncherApp'
+    mainClass = 'com.nullclient.LauncherApp'   // 根据你的包名修改
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-    sourceCompatibility = '21'
-    targetCompatibility = '21'
-}
-
-
-task runApp(type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-    mainClass = 'org.example.launcher.LauncherApp'
-    jvmArgs = [
-            '--module-path', classpath.asPath,
-            '--add-modules', 'javafx.controls,javafx.fxml'
-    ]
+// 如果希望打包成可执行 JAR，可以添加以下配置（可选）
+jar {
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
