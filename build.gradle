@@ -25,6 +25,8 @@ tasks.withType(JavaCompile) {
     sourceCompatibility = '21'
     targetCompatibility = '21'
 }
+
+
 task runApp(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     mainClass = 'org.example.launcher.LauncherApp'

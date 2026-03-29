@@ -1,0 +1,50 @@
+.root {
+    -fx-background-color: #1E1E2F;
+    -fx-font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.title-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #E6E6FA;
+}
+
+.combo-box {
+    -fx-background-color: #2D2D3A;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: #2D2D3A;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #3C3C4E;
+}
+
+.text-field {
+    -fx-background-color: #2D2D3A;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px;
+}
+
+.launch-button {
+    -fx-background-color: #6750A4;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20px;
+    -fx-padding: 10px 20px;
+}
+
+.launch-button:hover {
+    -fx-background-color: #7C62B5;
+}
+
+.launch-button:pressed {
+    -fx-background-color: #543A8C;
+}

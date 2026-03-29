@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" alignment="CENTER" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.controller.MainController">
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="Null Client Launcher" styleClass="title-label"/>
+
+    <ComboBox fx:id="versionCombo" promptText="选择游戏版本" prefWidth="250"/>
+
+    <TextField fx:id="usernameField" promptText="用户名 (离线模式)"/>
+
+    <Button fx:id="launchButton" text="启动游戏" onAction="#onLaunch" styleClass="launch-button"/>
+</VBox>
